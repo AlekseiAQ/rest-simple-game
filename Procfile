@@ -1,1 +1,1 @@
-web: gunicorn api.game_api.wsgi --log-file -
+web: gunicorn --pythonpath api game_api.wsgi
