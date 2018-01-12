@@ -25,7 +25,7 @@ class ProfileSerializer(serializers.HyperlinkedModelSerializer):
         model = Profile
         depth = 1
         fields = ('url', 'id', 'username', 'email',
-                  'about', 'user', 'user_url')
+                  'about', 'wins', 'user', 'user_url')
 
     def update(self, instance, validated_data):
         # retrieve the User
