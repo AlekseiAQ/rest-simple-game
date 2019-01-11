@@ -5,7 +5,7 @@ from django.dispatch import receiver
 
 
 class Profile(models.Model):
-    about = models.CharField(max_length=255, blank=True, default='')
+    about = models.CharField(max_length=255, blank=True, default="")
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     wins = models.IntegerField(blank=True, default=0)
 

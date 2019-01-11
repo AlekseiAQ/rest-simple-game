@@ -13,7 +13,8 @@ class IsOwnerOrReadOnly(permissions.BasePermission):
             return True
 
         return (request.user and request.user.is_superuser) or (
-            obj.user == request.user)
+            obj.user == request.user
+        )
 
 
 class IsAdminUserOrReadOnly(permissions.BasePermission):
@@ -40,7 +41,7 @@ class IsSameUserAllowEditionOrReadOnly(permissions.BasePermission):
             return True
 
         # grant permission only if the method is the PUT method
-        return request.user.is_staff or request.method == 'PUT'
+        return request.user.is_staff or request.method == "PUT"
 
     def has_object_permission(self, request, view, obj):
         # Read permissions are allowed to any request,
@@ -48,5 +49,6 @@ class IsSameUserAllowEditionOrReadOnly(permissions.BasePermission):
         if request.method in permissions.SAFE_METHODS:
             return True
 
-        return request.user.is_staff or (request.method == 'PUT' and
-                                         obj.id == request.user.id)
+        return request.user.is_staff or (
+            request.method == "PUT" and obj.id == request.user.id
+        )
